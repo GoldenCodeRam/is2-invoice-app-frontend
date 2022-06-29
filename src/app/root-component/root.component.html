@@ -1,0 +1,41 @@
+<div class="toolbar" role="banner">
+    <nav class="navbar bg-light shadow-lg border-bottom">
+        <div class="container-fluid">
+            <a class="navbar-brand" [routerLink]="['dashboard']">
+                <img src="../assets/logo.svg" width="30">
+                Prototipo
+            </a>
+        </div>
+        <div class="container-fluid justify-content-end">
+            <a class="btn btn-white" [routerLink]="['admin']">
+                <p class="m-0 p-0 pe-2 d-inline-block">{{currentUserName}}</p>
+                <img src="../assets/admin_picture.svg" width="25">
+            </a>
+        </div>
+    </nav>
+</div>
+
+<router-outlet></router-outlet>
+
+<footer class="mt-auto bg-light border-top pt-1">
+    <div class="container-fluid text-center">
+        <div class="row align-items-center">
+            <div class="col">
+                <p class="m-0 p-0 fw-bold" style="font-size:10pt">Universidad</p>
+                <p class="m-0 p-0" style="font-size:10pt">portalweb@universidad.com</p>
+                <p class="m-0 p-0" style="font-size:10pt">Lunes a Viernes, de 10:00 a.m. a 10:10 a.m.</p>
+            </div>
+            <div class="col">
+                <p class="m-0 p-0 fw-bold" style="font-size:10pt">Atención al ciudadano</p>
+                <p class="m-0 p-0" style="font-size:10pt">Línea: 01 8000 123456</p>
+                <p class="m-0 p-0" style="font-size:10pt">quejas.reclamos@colombia.com</p>
+            </div>
+        </div>
+        <div class="container pt-1">
+            <p class="m-0 p-0" style="font-size:10pt">
+                Institución de Educación Superior sujeta a inspección y vigilancia por algún ministerio.
+            </p>
+            <p class="m-0 p-0 fw-bold" style="font-size:10pt">Copyright - 2022</p>
+        </div>
+    </div>
+</footer>

@@ -1,0 +1,13 @@
+<div class="container my-5">
+    <h1>Clientes</h1>
+    <div class="row row-cols-1 row-cols-md-2 g-4">
+        <div class="col" *ngFor="let client of clients">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">{{ client.firstName }} : {{ client.id }}</h5>
+                    <p class="card-text">Creado el {{ client.createdAt }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,126 @@
+<div class="container-fluid overflow-auto">
+    <div class="container border text-center my-5 p-3 bg-light rounded shadow">
+        <h2>Sistema de evaluación</h2>
+        <h4>Tarea {{assignment?.id}}</h4>
+        <hr>
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <p class="m-0 p-0 fw-bold">Título del trabajo</p>
+                </div>
+                <div class="col">
+                    <p class="m-0 p-0">{{assignment?.title}}</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <p class="m-0 p-0 fw-bold">Director</p>
+                </div>
+                <div class="col">
+                    <p class="m-0 p-0">{{assignment?.director}}</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <p class="m-0 p-0 fw-bold">Autores</p>
+                </div>
+                <div class="col">
+                    <p class="m-0 p-0">{{assignment?.authors}}</p>
+                </div>
+            </div>
+        </div>
+        <hr>
+        <div class="alert alert-light border d-flex align-items-center mx-5 justify-content-center" role="alert">
+            <div *ngIf="assignment?.status == 0">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"
+                    class="bi bi-exclamation-triangle-fill flex-shrink-0 me-2" viewBox="0 0 16 16" role="img"
+                    aria-label="Warning:">
+                    <path
+                        d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z" />
+                </svg>
+                <p class="m-0 p-0 d-inline-block">
+                    La tarea se encuentra lista para ser revisada.
+                </p>
+            </div>
+            <div *ngIf="assignment?.status == 1">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"
+                    class="bi bi-exclamation-triangle-fill flex-shrink-0 me-2" viewBox="0 0 16 16" role="img"
+                    aria-label="Warning:">
+                    <path
+                        d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z" />
+                </svg>
+                <p class="m-0 p-0 d-inline-block">
+                    La tarea se encuentra en proceso de revisión.
+                </p>
+            </div>
+            <div *ngIf="assignment?.status == 2">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"
+                    class="bi bi-exclamation-triangle-fill flex-shrink-0 me-2" viewBox="0 0 16 16" role="img"
+                    aria-label="Warning:">
+                    <path
+                        d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z" />
+                </svg>
+                <p class="m-0 p-0 d-inline-block">
+                    La tarea se encuentra revisada <b>pero no enviada</b>.
+                </p>
+            </div>
+            <div *ngIf="assignment?.status == 3">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"
+                    class="bi bi-exclamation-triangle-fill flex-shrink-0 me-2" viewBox="0 0 16 16" role="img"
+                    aria-label="Warning:">
+                    <path
+                        d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z" />
+                </svg>
+                <p class="m-0 p-0 d-inline-block">
+                    La tarea ha sido enviada.
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="container p-3 rounded border bg-light">
+        <div class="row align-items-center">
+            <div class="col-12 col-sm-4">
+                <div class="list-group list-group-numbered">
+                    <a [routerLink]="" (click)="navigateToRubricElement(0)"
+                        class="list-group-item list-group-item-action"
+                        [ngClass]="{'bg-success': false, 'active': rubricElement === 0 && true}">
+                        Título
+                    </a>
+                    <a [routerLink]="" (click)="navigateToRubricElement(1)"
+                        class="list-group-item list-group-item-action"
+                        [ngClass]="{'bg-success': false, 'active': rubricElement === 1 && true}">
+                        Problema de investigación
+                    </a>
+                    <a [routerLink]="" (click)="navigateToRubricElement(2)"
+                        class="list-group-item list-group-item-action"
+                        [ngClass]="{'bg-success': false, 'active': rubricElement === 2 && true}">Formulación de
+                        objetivos
+                    </a>
+                    <a [routerLink]="" (click)="navigateToRubricElement(3)"
+                        class="list-group-item list-group-item-action"
+                        [ngClass]="{'bg-success': false, 'active': rubricElement === 3 && true}">Justificación de la
+                        propuesta
+                    </a>
+                    <a [routerLink]="" (click)="navigateToRubricElement(4)"
+                        class="list-group-item list-group-item-action"
+                        [ngClass]="{'bg-success': false, 'active': rubricElement === 4 && true}">Referente conceptual
+                    </a>
+                    <a [routerLink]="" (click)="navigateToRubricElement(5)"
+                        class="list-group-item list-group-item-action"
+                        [ngClass]="{'bg-success': false, 'active': rubricElement === 5 && true}">Metodología</a>
+                    <a [routerLink]="" (click)="navigateToRubricElement(6)"
+                        class="list-group-item list-group-item-action"
+                        [ngClass]="{'bg-success': false, 'active': rubricElement === 6 && true}">Cronograma y aspectos
+                        administrativos</a>
+                    <a [routerLink]="" (click)="navigateToRubricElement(7)"
+                        class="list-group-item list-group-item-action"
+                        [ngClass]="{'bg-success': false, 'active': rubricElement === 7 && true}">Resumen de
+                        evaluación</a>
+                </div>
+            </div>
+            <div class="col-6">
+                <router-outlet></router-outlet>
+            </div>
+        </div>
+    </div>
+</div>

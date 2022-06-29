@@ -1,0 +1,9 @@
+<div class="container border text-center my-5 p-3 bg-light rounded shadow">
+    <h2>Trabajos</h2>
+    <div class="container">
+        <div class="list-group">
+            <a *ngFor="let assignment of assignments" [routerLink]="['/assignment', assignment.id]"
+                class="list-group-item list-group-item-action">{{assignment.title}}</a>
+        </div>
+    </div>
+</div>

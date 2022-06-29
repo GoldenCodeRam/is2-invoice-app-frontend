@@ -1,0 +1,18 @@
+<div class="container border text-center my-5 p-3 bg-light rounded shadow">
+    <h1>Ingreso</h1>
+    <form (ngSubmit)="login()">
+        <div class="mb-3 text-start">
+            <label for="email" class="form-label">Correo electrónico</label>
+            <input [(ngModel)]="dirtyLoginFields.email" type="email" class="form-control" id="email"
+                placeholder="nombre@correo.com" name="email">
+        </div>
+        <div class="mb-3 text-start">
+            <label for="password" class="form-label">Contraseña</label>
+            <input [(ngModel)]="dirtyLoginFields.password" name="password" type="password" class="form-control"
+                id="password">
+        </div>
+        <div>
+            <button type="submit" class="btn btn-primary">Ingresar</button>
+        </div>
+    </form>
+</div>
